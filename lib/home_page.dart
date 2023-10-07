@@ -57,9 +57,10 @@ class _HomePageState extends State<HomePage> {
         ],
         centerTitle: true,
       ),
-      body: FutureBuilder(
-        future: getCurrentWeather(),
-        builder: (context, snapshot) {
+      body: SingleChildScrollView(
+        child: FutureBuilder(
+         future: getCurrentWeather(),
+         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator.adaptive());
           }
@@ -203,6 +204,7 @@ class _HomePageState extends State<HomePage> {
           );
         },
       ),
+     ),   
     );
   }
 }
